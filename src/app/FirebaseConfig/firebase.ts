@@ -10,14 +10,14 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBEXMvVLB466qalKZdby8zbR6oXO0_wo1A",
-  authDomain: "roman-apps.firebaseapp.com",
-  databaseURL: "https://roman-apps-default-rtdb.firebaseio.com",
-  projectId: "roman-apps",
-  storageBucket: "roman-apps.appspot.com",
-  messagingSenderId: "691534944125",
-  appId: "1:691534944125:web:a95a2a9f45890c9e639e14",
-  measurementId: "G-0HN95SRVNM"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

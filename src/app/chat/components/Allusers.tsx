@@ -8,7 +8,7 @@ const Allusers = () => {
   //chats == allusers
   const [chats, setChats] = useState([]);
 
-  const { user } = useContext(AuthContext);
+  const { user } = useContext<AuthContextProps | undefined>(AuthContext);
   const { dispatch } = useContext(ChatContext);
 
   useEffect(() => {

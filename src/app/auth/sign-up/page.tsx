@@ -9,11 +9,11 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState<any>("");
   const [error, setError] = useState("");
-  const [progress, setProgress] = useState("");
+  const [progress, setProgress] = useState<any>("");
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = async (e:any) => {
     e.preventDefault();
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -88,7 +88,7 @@ const SignUp = () => {
           />
           <input
             type="file"
-            onChange={(e) => setFile(e.target.files[0])}
+            onChange={(e:any) => setFile(e.target.files[0])}
             id="file"
             className="hidden"
           />

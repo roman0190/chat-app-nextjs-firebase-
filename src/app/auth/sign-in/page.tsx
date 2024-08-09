@@ -14,7 +14,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSignIn = (e) => {
+  const handleSignIn = (e:any) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -25,7 +25,7 @@ const SignIn = () => {
       });
   };
 
-  const handleGoogle = (e) => {
+  const handleGoogle = (e:any) => {
     e.preventDefault();
     signInWithPopup(auth, provider)
       .then(() => {
