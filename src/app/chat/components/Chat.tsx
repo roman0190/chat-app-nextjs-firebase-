@@ -12,7 +12,7 @@ const Chat = () => {
   const { user }:any = useContext(AuthContext);
 
   return (
-    <div className="flex border rounded-xl h-screen lg:h-[80vh] lg:w-[75rem] md:h-[80vh] md:w-[75rem] overflow-hidden">
+    <div className="flex border rounded-xl h-screen  lg:h-[80vh] lg:w-[75rem] md:h-[80vh] md:w-[75rem] overflow-hidden">
       <div className="sidebar bg-[#3C366B] w-[50%]">
         <div className="sidebarNav flex justify-between pt-5 pb-5 bg-[#5f5a8a]">
           <span className="text-xl font-bold ml-2 hidden md:flex lg:flex">

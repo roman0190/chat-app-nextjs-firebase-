@@ -3,12 +3,12 @@ import { AuthContext } from "@/app/context/AuthContext";
 import { ChatContext } from "@/app/context/ChatContext";
 import { db } from "@/app/FirebaseConfig/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
-  const { data }:any = useContext(ChatContext);
-  const { user }:any = useContext(AuthContext);
+  const { data }: any = useContext(ChatContext);
+  const { user }: any = useContext(AuthContext);
 
   useEffect(() => {
     if (!data.chatId) return; // Ensure chatId is valid before proceeding
@@ -23,6 +23,14 @@ const Messages = () => {
       unSub(); // Cleanup the listener on unmount
     };
   }, [data.chatId]);
+
+  const lastMessageRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth" ,block: "end"});
+    }
+  }, [messages]);
 
   return (
     <>
@@ -44,8 +52,12 @@ const Messages = () => {
             </span>
           </div>
           <div className="chat-container bg-slate-400 h-[86%] lg:h-[83%] md:h-[83%] p-2 flex flex-col overflow-y-auto">
-            {messages.map((m:any) => (
-              <div key={m.id} className="messages flex flex-col h-full justify-end">
+            {messages.map((m: any, index:any) => (
+              <div
+                key={m.id}
+                ref={index === messages.length - 1 ? lastMessageRef : null}
+                className="messages flex flex-col h-full justify-end"
+              >
                 <div
                   className={`singleText flex ${
                     m.SenderId === user.uid ? "flex-row-reverse" : ""
@@ -89,7 +101,9 @@ const Messages = () => {
         </>
       ) : (
         <div className="flex items-center justify-center h-full">
-          <span className="text-gray-500">Select a User to start messaging</span>
+          <span className="text-gray-500">
+            Select a User to start messaging
+          </span>
         </div>
       )}
     </>
