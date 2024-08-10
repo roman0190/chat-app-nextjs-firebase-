@@ -21,7 +21,7 @@ export const ChatContext = createContext<ChatContextType | undefined>(
 );
 
 export const ChatContextProvider = ({ children }: ChatContextProviderProps) => {
-  const { user } = useContext(AuthContext); // Use useContext to access the AuthContext
+  const { user } :any= useContext(AuthContext); // Use useContext to access the AuthContext
 
   const INITIAL_STATE: ChatState = {
     chatId: null,

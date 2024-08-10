@@ -10,8 +10,8 @@ const InputBox = () => {
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
 
-  const { user } = useContext(AuthContext);
-  const { data } = useContext(ChatContext);
+  const { user }:any = useContext(AuthContext);
+  const { data }:any = useContext(ChatContext);
 
   const handleSend = async () => {
     if (img) {
@@ -68,7 +68,7 @@ const InputBox = () => {
     setText('')
   };
   
-  const handleKey = (e) => {
+  const handleKey = (e:any) => {
     if (e.code === "Enter") {
       handleSend();
     }
@@ -86,7 +86,7 @@ const InputBox = () => {
         />
         <input
           type="file"
-          onChange={(e) => setImg(e.target.files[0])}
+          onChange={(e:any) => setImg(e.target.files[0])}
           className="hidden"
           id="file"
           aria-label="Upload file"

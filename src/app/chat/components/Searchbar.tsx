@@ -18,7 +18,7 @@ const Searchbar = () => {
   const [suser, setSuser] = useState<any>(null);
   const [err, setErr] = useState<string | null>(null);
 
-  const { user } = useContext(AuthContext);
+  const { user }:any = useContext(AuthContext);
 
   const handleSearch = async () => {
     const usersRef = collection(db, "users");
@@ -41,13 +41,13 @@ const Searchbar = () => {
     }
   };
 
-  const handleKey = (e) => {
+  const handleKey = (e:any) => {
     if (e.code === "Enter") {
       handleSearch();
     }
   };
 
-  const handleSelect = async (e) => {
+  const handleSelect = async (e:any) => {
 
     const combinedId =
       user.uid > suser.uid ? user.uid + suser.uid : suser.uid + user.uid;

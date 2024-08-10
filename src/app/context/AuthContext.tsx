@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { onAuthStateChanged, User } from "firebase/auth";
 import { createContext, useEffect, useState, ReactNode } from "react";
 import { auth } from "../FirebaseConfig/firebase";
@@ -13,8 +13,11 @@ interface AuthContextProviderProps {
   children: ReactNode;
 }
 
+// Placeholder User object
+const defaultUser = {} as User;
+
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
-  const [user, setUser] = useState<User | null>({});
+  const [user, setUser] = useState<User | null>(defaultUser);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {

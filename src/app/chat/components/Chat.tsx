@@ -9,7 +9,7 @@ import Messages from "./Messages";
 import InputBox from "./Input";
 
 const Chat = () => {
-  const { user } = useContext(AuthContext);
+  const { user }:any = useContext(AuthContext);
 
   return (
     <div className="flex border rounded-xl h-screen lg:h-[80vh] lg:w-[75rem] md:h-[80vh] md:w-[75rem] overflow-hidden">

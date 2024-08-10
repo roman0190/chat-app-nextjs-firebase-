@@ -7,8 +7,8 @@ import React, { useContext, useEffect, useState } from "react";
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
-  const { data } = useContext(ChatContext);
-  const { user } = useContext(AuthContext);
+  const { data }:any = useContext(ChatContext);
+  const { user }:any = useContext(AuthContext);
 
   useEffect(() => {
     if (!data.chatId) return; // Ensure chatId is valid before proceeding
@@ -44,7 +44,7 @@ const Messages = () => {
             </span>
           </div>
           <div className="chat-container bg-slate-400 h-[86%] lg:h-[83%] md:h-[83%] p-2 flex flex-col overflow-y-auto">
-            {messages.map((m) => (
+            {messages.map((m:any) => (
               <div key={m.id} className="messages flex flex-col h-full justify-end">
                 <div
                   className={`singleText flex ${

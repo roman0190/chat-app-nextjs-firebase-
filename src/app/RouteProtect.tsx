@@ -12,7 +12,7 @@ interface RouteProtectProps {
 const RouteProtect = ({ children }: RouteProtectProps) => {
   const router = useRouter();
   const pathname = usePathname(); // Get the current route
-  const { user } = useContext(AuthContext);
+  const { user }:any = useContext(AuthContext);
   
   
   
